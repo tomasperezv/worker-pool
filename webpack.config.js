@@ -5,13 +5,14 @@ const config = {
   context: __dirname,
   entry: {
     'worker-pool.js': [
-      './src/pool.js',
       './src/worker-pool.js'
     ]
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: '[name]'
+    filename: '[name]',
+    libraryTarget: 'var',
+    library: 'WorkerPool'
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -51,3 +51,5 @@ Pool.prototype.on = (eventId, listener) => {
 
   this._listeners[eventId].push(listener);
 };
+
+module.exports = Pool;

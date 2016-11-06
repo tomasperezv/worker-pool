@@ -52,3 +52,5 @@ WorkerPool.prototype.run = (job) => {
     job();
   }
 };
+
+module.exports = WorkerPool;
