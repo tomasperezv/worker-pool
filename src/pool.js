@@ -1,7 +1,7 @@
 /**
  * @module Pool
  */
-var Pool = function() {
+const Pool = () => {
   /**
    * @type {Array} _queue
    * @private
@@ -19,7 +19,7 @@ var Pool = function() {
  * @method enqueue
  * @param {Function} job
  */
-Pool.prototype.enqueue = function(job) {
+Pool.prototype.enqueue = (job) => {
   if (typeof job === 'function') {
     this._queue.push(job);
   }
@@ -29,8 +29,8 @@ Pool.prototype.enqueue = function(job) {
  * @method enqueue
  * @returns {Function|null}
  */
-Pool.prototype.dequeue = function() {
-  var job = null;
+Pool.prototype.dequeue = () => {
+  let job = null;
   if (this._queue.length > 0) {
     job = this._queue.pop();
   }
@@ -44,7 +44,7 @@ Pool.prototype.dequeue = function() {
  * @params {Function} listener
  * @public
  */
-Pool.prototype.on = function(eventId, listener) {
+Pool.prototype.on = (eventId, listener) => {
   if (typeof this._listeners[eventId] === 'undefined') {
     this._listeners[eventId] = [];
   }

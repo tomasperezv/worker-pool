@@ -1,8 +1,10 @@
+const Pool = require('./pool');
+
 /**
  * @module WorkerPool
  * @params {Object} options
  */
-var WorkerPool = function(options) {
+const WorkerPool = (options) => {
   /**
    * _options
    * @type {Object}
@@ -26,8 +28,8 @@ var WorkerPool = function(options) {
  * @method _attachEvents
  * @private
  */
-WorkerPool.prototype._attachEvents = function() {
-  this._pool.on('ready', function(job) {
+WorkerPool.prototype._attachEvents = () => {
+  this._pool.on('ready', () => {
   });
 };
 
@@ -36,19 +38,17 @@ WorkerPool.prototype._attachEvents = function() {
  * @returns {Boolean}
  * @private
  */
-WorkerPool.prototype.isAvailable = function() {
-  return typeof window.Worker !== 'undefined';
-};
+WorkerPool.prototype.isAvailable = () => (typeof window.Worker !== 'undefined');
 
 /**
  * @param {Function} job
  * @method run
  * @public
  */
-WorkerPool.prototype.run = function(job) {
+WorkerPool.prototype.run = (job) => {
   if (this.isAvailable()) {
     this._pool.enqueue(job);
   } else {
-    callback();
+    job();
   }
 };
