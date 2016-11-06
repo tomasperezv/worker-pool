@@ -55,7 +55,7 @@ Pool.prototype.enqueue = function(job) {
       this._queue.push(job);
     }
   } else {
-    this._trigger('error', jobId);
+    this._trigger('error', { id: jobId, data: null });
   }
 
   return jobId;
