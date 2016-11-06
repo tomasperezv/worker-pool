@@ -4,7 +4,7 @@ const Pool = require('./pool');
  * @module WorkerPool
  * @params {Object} options
  */
-const WorkerPool = (options) => {
+const WorkerPool = function constructor(options) {
   /**
    * _options
    * @type {Object}

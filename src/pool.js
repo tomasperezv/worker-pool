@@ -1,7 +1,7 @@
 /**
  * @module Pool
  */
-const Pool = () => {
+const Pool = function constructor() {
   /**
    * @type {Array} _queue
    * @private
