@@ -16,7 +16,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './example/worker-pool-example.html',
-      filename: 'example.html'
+      filename: 'index.html'
     })
   ]
 };
