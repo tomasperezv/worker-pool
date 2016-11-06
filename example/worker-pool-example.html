@@ -5,8 +5,19 @@
   </head>
   <body>
     <script>
-      const Pool = require('worker-pool');
-      console.log('Hello world');
+      let worker = new WorkerPool();
+
+      worker.run(() => {
+        var result = 0;
+        for (var i = 0; i < 100; i++) {
+          result += i;
+        }
+
+        return result;
+      })
+      .then((result) => {
+        console.log(result);
+      });
     </script>
   </body>
 </html>
