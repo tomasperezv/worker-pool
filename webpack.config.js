@@ -17,7 +17,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './example/worker-pool-example.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      inject: 'head'
     })
   ]
 };
