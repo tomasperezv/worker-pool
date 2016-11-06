@@ -13,7 +13,13 @@ const JobRunner = function constructor() {
  */
 JobRunner.prototype.execute = function(job) {
   return new Promise((resolve) => {
-    resolve(12345);
+    const worker = new Worker('web-worker.js');
+
+    worker.addEventListener('message', (message) => {
+      resolve(message.result);
+    }, false);
+
+    worker.postMessage({ job });
   });
 };
 
