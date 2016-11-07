@@ -16,10 +16,10 @@ JobRunner.prototype.execute = function(job) {
     const worker = new Worker('web-worker.js');
 
     worker.addEventListener('message', (message) => {
-      resolve(message.result);
+      resolve(message.data.result);
     }, false);
 
-    worker.postMessage({ job });
+    worker.postMessage({ job: `return ${job.toString()}` });
   });
 };
 

@@ -1,8 +1,9 @@
 /**
  * @module WebWorker
  */
-self.addEventListener('message', (message) => {
-  if (typeof message.job === 'function') {
-    postMessage({ result: message.job() });
+addEventListener('message', (message) => {
+  if (typeof message.data.job === 'string') {
+    const job = new Function(message.data.job)(); // eslint-disable-line no-new-func
+    postMessage({ result: job() });
   }
 }, false);
