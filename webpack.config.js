@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
   context: __dirname,
@@ -19,7 +20,11 @@ const config = {
       template: './example/worker-pool-example.html',
       filename: 'index.html',
       inject: 'head'
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: './src/web-worker.js',
+      to: 'web-worker.js'
+    }])
   ]
 };
 
