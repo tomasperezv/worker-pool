@@ -25,6 +25,7 @@ npm run build
 ## Test locally
 
 ```
+npm i --dev
 npm run build
 npm run server
 ```
