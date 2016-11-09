@@ -16,6 +16,11 @@ Run processing tasks in background threads by using web workers
   });
 ```
 
+## Fallback
+
+If web-workers are not available the job will be run in the current
+execution context.
+
 ## Build
 
 ```
